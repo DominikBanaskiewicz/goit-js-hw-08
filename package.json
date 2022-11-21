@@ -5,7 +5,7 @@
   "homepage": "https://dominikbanaskiewicz.github.io/goit-js-hw-08/",
   "scripts": {
     "start": "parcel src/*.html ",
-    "build": "parcel build src/*.html goit-js-hw-08"
+    "build": "parcel build src/*.html --public-url --public-path goit-js-hw-08"
   },
   "repository": {
     "type": "git",
