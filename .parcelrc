@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "@parcel/config-default"
-  ],
+  "extends": [],
   "reporters": [
     "...",
     "parcel-reporter-clean-dist"
