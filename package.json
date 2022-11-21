@@ -4,8 +4,8 @@
   "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
   "homepage": "https://github.com/DominikBanaskiewicz/goit-js-hw-08",
   "scripts": {
-    "start": "parcel src/*.html ",
-    "build": "parcel build src/*.html --public-url goit-js-hw-08/"
+    "start": "parcel src/*.html  --public-url /goit-js-hw-08/",
+    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,6 @@
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "main": "index.js"
 }
