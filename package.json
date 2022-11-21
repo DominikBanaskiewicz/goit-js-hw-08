@@ -4,8 +4,8 @@
   "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
   "homepage": "https://github.com/DominikBanaskiewicz/goit-js-hw-08",
   "scripts": {
-    "start": "parcel src/*.html  --public-url /goit-js-hw-08/",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
+    "start": "parcel src/*.html  ",
+    "build": "parcel build src/*.html "
   },
   "repository": {
     "type": "git",
