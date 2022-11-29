@@ -33,7 +33,7 @@ formUpdateOnstart(localStorageData);
 //
 const data = {
   email: localStorageData.email,
-  message: localStorageData.email,
+  message: localStorageData.message,
 };
 
 // adding input data to object on input event
@@ -50,6 +50,10 @@ const localStorageUpdate = throttle(() => {
 // submit btn
 submitBtn.addEventListener('click', event => {
   event.preventDefault();
+  if (inputMessage.value === '' && inputEmail.value === '') {
+    console.error('Input email and message');
+    return;
+  }
   inputMessage.value = '';
   inputEmail.value = '';
   localStorage.removeItem('feedback-form-state');

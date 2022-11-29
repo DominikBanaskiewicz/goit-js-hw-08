@@ -15,6 +15,9 @@ const savePlayerTime = data => {
 };
 
 player.on('timeupdate', throttle(savePlayerTime, 1000));
+player.on('ended', () => {
+  player.unload();
+});
 
 const getLocalTime = () => {
   const savedTime = localStorage.getItem('videoplayer-current-time');
