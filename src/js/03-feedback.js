@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle';
+import Notiflix from 'notiflix';
 const form = document.querySelector('form');
 const inputEmail = form.querySelector('label > input');
 const inputMessage = form.querySelector('label > textarea');
@@ -51,7 +52,7 @@ const localStorageUpdate = throttle(() => {
 submitBtn.addEventListener('click', event => {
   event.preventDefault();
   if (inputMessage.value === '' && inputEmail.value === '') {
-    console.error('Input email and message');
+    Notiflix.Notify.failure('Please input email and message');
     return;
   }
   inputMessage.value = '';
