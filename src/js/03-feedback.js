@@ -1,9 +1,17 @@
 import throttle from 'lodash.throttle';
-import Notiflix from 'notiflix';
 const form = document.querySelector('form');
 const inputEmail = form.querySelector('label > input');
 const inputMessage = form.querySelector('label > textarea');
 const submitBtn = form.querySelector('button');
+
+const setSubmitBtnStatus = () => {
+  if (inputMessage.value === '' || inputEmail.value === '') {
+    submitBtn.disabled = true;
+  }
+  if (inputMessage.value != '' && inputEmail.value != '') {
+    submitBtn.disabled = false;
+  }
+};
 
 //checking local-storage for 'feedback-form-state' exist if dont create it empty
 const initializeLocalStorage = () => {
@@ -28,6 +36,7 @@ const formUpdateOnstart = localStorageData => {
   if (localStorageData.message != '') {
     inputMessage.value = localStorageData.message;
   }
+  setSubmitBtnStatus();
 };
 formUpdateOnstart(localStorageData);
 
@@ -40,6 +49,7 @@ const data = {
 // adding input data to object on input event
 const formList = form.addEventListener('input', event => {
   data[event.target.name] = event.target.value;
+  setSubmitBtnStatus();
   localStorageUpdate();
 });
 
@@ -51,12 +61,9 @@ const localStorageUpdate = throttle(() => {
 // submit btn
 submitBtn.addEventListener('click', event => {
   event.preventDefault();
-  if (inputMessage.value === '' && inputEmail.value === '') {
-    Notiflix.Notify.failure('Please input email and message');
-    return;
-  }
   inputMessage.value = '';
   inputEmail.value = '';
+  setSubmitBtnStatus();
   localStorage.removeItem('feedback-form-state');
   console.log(data);
 });

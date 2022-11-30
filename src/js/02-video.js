@@ -16,6 +16,7 @@ const savePlayerTime = data => {
 
 player.on('timeupdate', throttle(savePlayerTime, 1000));
 player.on('ended', () => {
+  localStorage.removeItem('videoplayer-current-time');
   player.unload();
 });
 
